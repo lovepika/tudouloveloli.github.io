@@ -102,7 +102,7 @@
 <meta name="description" content="代码改变世界">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Tudou's Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/categories/Testing/index.html">
 <meta property="og:site_name" content="Tudou's Blog">
 <meta property="og:description" content="代码改变世界">
 <meta name="twitter:card" content="summary">
@@ -135,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/categories/Testing/"/>
 
 
 
 
 
-  <title> Tudou's Blog </title>
+  <title> 分类: Testing | Tudou's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -166,9 +166,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -305,294 +303,40 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/17/C语言-指针/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Shiwei Gao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Tudou's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/17/C语言-指针/" itemprop="url">
-                  C语言--指针
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-17T17:49:42+08:00">
-                2017-04-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>#谈谈指针</p>
-<p>#指针是什么？</p>
-<p>指针是一种保存变量地址的变量。</p>
-<p>##指针和地址<br><em>指针是能够存放一个地址的一组存储单元。（通常是2个或4个字节）</em></p>
-<p>###一元运算符&amp;可用于去一个对象的地址。</p>
-<p>p=&c;            //    p是一个指针变量<br>把c的地址赋值给变量p，我们称p为“指向”c的指针。<br>!!!地址运算符&amp;只能应用于内存中的对象，即变量和数组元素。不能作用于表达式，常量和register类型的变量</p>
-<p>###一元运算符是间接寻址或间接引用运算符。当它作用于指针时，将访问指针所指向的对象。</p>
-<p>x y 为整数。ip时指向int类型的指针。下面的代码将说明如何在程序中声明指针和如何使用&amp; ,* 运算符</p>
-<p><code><br>int x=1,y=2,z[10];<br>int <em>ip;        /</em>  ip是指向int类型的指针        <em>/<br>ip = &x;        /</em>    ip现在指向x，ip是x的指针变量，<em>ip代表的就是x，即</em>ip等价x        <em>/<br>y = </em>ip;        /<em>    y的值现在为1        </em>ip就是x            <em>/
-</em>ip=0;            /<em>    x的值现在为0         </em>/<br>ip=&amp;z[0];        /<em>    ip现在指向z[0]    </em>/</code></p>
-<p>##指针的声明</p>
-<p>###1 变量上的声明</p>
-<p>int <em>ip; //该声明语句生命表达式</em>ip的结果是int类型</p>
-<p>###2 对函数的声明（第二个才是函数的声明，第一个只是为了，说明和变量的声明差不多）</p>
-<p>double <em>dp,atof(char </em>);<br>在表达式中，*dp 和atof（s)的值都是double类型，且atof的参数是一个指向char类型的指针。</p>
-<blockquote>
-<p>我们应该注意，指针智能指向某种特定的类型的对象，也就是说，每个指针都必须指向某特定的数据类型。（一个例外情况是指向void类型的指针可以存放指向任何类型的指针，但他不能间接引用自身。）</p>
-</blockquote>
-<p>##指针的使用</p>
-<p>如果指针ip指向整型变量x，那么在可以出现的任何上下文中都可以使用*ip，因此语句</p>
-<p><em>ip=</em>ip+10; //将*ip的值增加10</p>
-<p>一元运算符<em>和&amp;的优先级比算术运算符优先级高。<br>y=</em>ip+1; //将*ip指向的对象的值取出并加1，再将结果赋值给y</p>
-<p><em>ip+=1;//等价于下面的表达式<br>++</em>ip;//或（*ip)++;</p>
-<blockquote>
-<p>说明一点，由于指针也是变量，所以在程序中可以直接使用，而不必通过间接引用的方法使用。</p>
-<p>如果iq是另一个指向整型的指针，那么语句<br>iq=ip;<br>将把ip中的值copy到iq中，这样，指针iq也将指向ip的对象。</p>
-</blockquote>
-
-          
-        
-      
+  <section id="posts" class="posts-collapse">
+    <div class="collection-title">
+      <h2 >
+        Testing
+        <small>分类</small>
+      </h2>
     </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
 
     
       
 
-  
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
 
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/11/Hello-Tudou/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Shiwei Gao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Tudou's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h1 class="post-title">
         
+            <a class="post-title-link" href="/2017/04/11/Hello-Tudou/" itemprop="url">
+              
+                <span itemprop="name">Hello Tudou</span>
+              
+            </a>
         
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/11/Hello-Tudou/" itemprop="url">
-                  Hello Tudou
-                </a>
-              
-            
-          </h1>
-        
+      </h1>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-11T08:57:37+08:00">
-                2017-04-11
-              </time>
-            
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2017-04-11T08:57:37+08:00"
+              content="2017-04-11" >
+          04-11
+        </time>
+      </div>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Testing/" itemprop="url" rel="index">
-                    <span itemprop="name">Testing</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>这是我的第一篇搭建在hexo上的文章。作为测试使用。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
+    </header>
   </article>
 
 
@@ -600,6 +344,7 @@
   </section>
 
   
+
 
 
           </div>
