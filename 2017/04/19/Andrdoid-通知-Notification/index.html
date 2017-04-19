@@ -1,0 +1,943 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android,Notification," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="Andrdoid–通知(Notification)通知是一个功能通知(Notification)是 Android 系统中比较有特色的一个功能，当某个应用程序希望向 用户发出一些提示信息，而该应用程序又不在前台运行时，就可以借助通知来实现。发出一 条通知后，手机最上方的状态栏中会显示一个通知的图标，下拉状态栏后可以看到通知的详细内容。 通知的使用">
+<meta name="keywords" content="Android,Notification">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Andrdoid--通知(Notification)">
+<meta property="og:url" content="http://yoursite.com/2017/04/19/Andrdoid-通知-Notification/index.html">
+<meta property="og:site_name" content="Tudou's Blog">
+<meta property="og:description" content="Andrdoid–通知(Notification)通知是一个功能通知(Notification)是 Android 系统中比较有特色的一个功能，当某个应用程序希望向 用户发出一些提示信息，而该应用程序又不在前台运行时，就可以借助通知来实现。发出一 条通知后，手机最上方的状态栏中会显示一个通知的图标，下拉状态栏后可以看到通知的详细内容。 通知的使用">
+<meta property="og:updated_time" content="2017-04-19T15:00:15.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Andrdoid--通知(Notification)">
+<meta name="twitter:description" content="Andrdoid–通知(Notification)通知是一个功能通知(Notification)是 Android 系统中比较有特色的一个功能，当某个应用程序希望向 用户发出一些提示信息，而该应用程序又不在前台运行时，就可以借助通知来实现。发出一 条通知后，手机最上方的状态栏中会显示一个通知的图标，下拉状态栏后可以看到通知的详细内容。 通知的使用">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/04/19/Andrdoid-通知-Notification/"/>
+
+
+
+
+
+  <title> Andrdoid--通知(Notification) | Tudou's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Tudou's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">每一刻，都要进步</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/19/Andrdoid-通知-Notification/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Shiwei Gao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Tudou's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Andrdoid--通知(Notification)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-19T15:44:39+08:00">
+                2017-04-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Andrdoid/" itemprop="url" rel="index">
+                    <span itemprop="name">Andrdoid</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Andrdoid–通知-Notification"><a href="#Andrdoid–通知-Notification" class="headerlink" title="Andrdoid–通知(Notification)"></a>Andrdoid–通知(Notification)</h1><h2 id="通知是一个功能"><a href="#通知是一个功能" class="headerlink" title="通知是一个功能"></a>通知是一个功能</h2><p>通知(Notification)是 Android 系统中比较有特色的一个功能，当某个应用程序希望向 用户发出一些提示信息，而该应用程序又不在前台运行时，就可以借助通知来实现。发出一 条通知后，手机最上方的状态栏中会显示一个通知的图标，下拉状态栏后可以看到通知的详细内容。</p>
+<h2 id="通知的使用"><a href="#通知的使用" class="headerlink" title="通知的使用"></a>通知的使用</h2><a id="more"></a>
+<p>通知的用法比较灵活.可以在活动中创建，也可以在广播接收器里创建，也可以在服务中创建。相比于广播接收器和服务，在活动里创建通知的场景还是比较少的， 因为一般只有当程序进入到后台的时候我们才需要使用通知 。</p>
+<h2 id="创建的步骤"><a href="#创建的步骤" class="headerlink" title="创建的步骤"></a>创建的步骤</h2><p><em>无论哪种方式，整体的创建步骤都是相同的</em></p>
+<h3 id="1，创建NotificationManager"><a href="#1，创建NotificationManager" class="headerlink" title="1，创建NotificationManager"></a>1，创建NotificationManager</h3><p>首先需要一个NotificationManager来对通知进行管理。可以调用 Context 的 getSystemService()方法获取到。getSystemService()方法接收一个字符串参数用于确定获取系 统的哪个服务，这里我们传入 Context.NOTIFICATION_SERVICE 即可。因此，获取NotificationManager 的实例就可以写成：</p>
+<pre><code>
+    NotificationManager manager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+</code></pre>
+
+<h3 id="2-使用一个Builder构造器来创建Notification对象"><a href="#2-使用一个Builder构造器来创建Notification对象" class="headerlink" title="2,使用一个Builder构造器来创建Notification对象"></a>2,使用一个Builder构造器来创建Notification对象</h3><p>几乎Android系统的每个版本都会对通知这部分功能进行或多或少的修改，API不稳定性问题在通知上面突出尤其严重。如何解决这个问题呢？就是使用support库中提供的兼容APIsupport-v4库中提供了一个NotificationCompat类，使用这个类的构造器来创建Notification对象，就可以保证在所有Android版本上正常工作。</p>
+<p><pre><code><br>Notification notification = new NotificationCompat.Builder(context).build();<br></code></pre><br>上述的代码创建了一个空的Notification对象，并没有什么实际的作用。我们可以在最终build()方法之前连缀任意多的设置方法来创建一个丰富的Notification对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Notification notification = <span class="keyword">new</span> NotificationCompat.Builder(<span class="keyword">this</span>)</div><div class="line">                       .setContentTitle(<span class="string">"This is a content title"</span>)</div><div class="line">                       .setContentText(<span class="string">"This is Content text"</span>)</div><div class="line">                       .setWhen(System.currentTimeMillis())</div><div class="line">                       .setSmallIcon(R.mipmap.ic_launcher)</div><div class="line">                       .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher))</div><div class="line">                       .build();</div><div class="line">                       <span class="comment">//setXXX的意思，看英文名就能知道是什么意思了。不在解释了。</span></div></pre></td></tr></table></figure>
+<h3 id="3-使用这个通知"><a href="#3-使用这个通知" class="headerlink" title="3,使用这个通知"></a>3,使用这个通知</h3><p>只需要调用NotificationManager的notify()方法就可以了</p>
+<h3 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> <span class="keyword">implements</span> <span class="title">View</span>.<span class="title">OnClickListener</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line">        Button sendButton = (Button) findViewById(R.id.send_notification);</div><div class="line">        sendButton.setOnClickListener(<span class="keyword">this</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 创建通知的Demo</div><div class="line">     * 先创建NotificationManager 对象</div><div class="line">     * 在创建Notification的对象，并进行设置</div><div class="line">     * 设置完成后使用NotificationManager的notify方法</div><div class="line">     * date 20170419</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span> v</div><div class="line">     */</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">        <span class="keyword">switch</span> (v.getId()) &#123;</div><div class="line">            <span class="keyword">case</span> R.id.send_notification:</div><div class="line">                NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);</div><div class="line">                Notification notification = <span class="keyword">new</span> NotificationCompat.Builder(<span class="keyword">this</span>)</div><div class="line">                        .setContentTitle(<span class="string">"This is a content title"</span>)</div><div class="line">                        .setContentText(<span class="string">"This is Content text"</span>)</div><div class="line">                        .setWhen(System.currentTimeMillis())</div><div class="line">                        .setSmallIcon(R.mipmap.ic_launcher)</div><div class="line">                        .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher))</div><div class="line">                        .build();</div><div class="line"><span class="comment">//                使用manager的notify方法。第一个参数是ID，要保证每个通知的ID都是不同的</span></div><div class="line">                manager.notify(<span class="number">1</span>, notification);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">default</span>:</div><div class="line">                <span class="keyword">break</span>;</div><div class="line"></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>如果你使用过 Android 手机，此时应该会下意识地认为这条通知是可以点击的。但是当 你去点击它的时候，你会发现没有任何效果。不对啊，好像每条通知点击之后都应该会有反 应的呀?其实要想实现通知的点击效果，我们还需要在代码中进行相应的设置，这就涉及到 了一个新的概念，PendingIntent。</p>
+</blockquote>
+<h2 id="设置点击效果"><a href="#设置点击效果" class="headerlink" title="设置点击效果"></a>设置点击效果</h2><h3 id="PendingIntent"><a href="#PendingIntent" class="headerlink" title="PendingIntent"></a>PendingIntent</h3><p>PendingIntent 从名字上看起来就和 Intent 有些类似，它们之间也确实存在着不少共同点。 比如它们都可以去指明某一个“意图”，都可以用于启动活动、启动服务以及发送广播等。 </p>
+<p><strong>不同的是，Intent 更加倾向于去立即执行某个动作，而 PendingIntent 更加倾向于在某个合适 的时机去执行某个动作。所以，也可以把 PendingIntent 简单地理解为延迟执行的 Intent。</strong></p>
+<p>PendingIntent 的用法同样很简单，<strong>它主要提供了几个静态方法</strong>用于获取 PendingIntent 的实例，可以根据需求来选择是使用 getActivity()方法、getBroadcast()方法、还是 getService() 方法。</p>
+<p>这几个方法所接收的参数都是相同的.</p>
+<ul>
+<li>第一个参数依旧是 Context，不用多做解释。 </li>
+<li>第二个参数一般用不到，通常都是传入0即可。</li>
+<li>第三个参数是一个 Intent 对象，我们可以通过这个对象构建出 PendingIntent 的“意图”。</li>
+<li>第四个参数用于确定 PendingIntent 的行为，有 FLAG_ONE_SHOT、FLAG_NO_CREATE、FLAG_CANCEL_CURRENT 和 FLAG<em>UPDATE</em> CURRENT 这四种值可选，每种值的含义你可以查看文档，通常的情况下这个参数传入0就可以了。</li>
+</ul>
+<p><strong>对PendingIntent 有了一定的了解后，我们再回过头来看一下NotificationCompat.Builder。这个构造器还可以在连缀一个setLatestEventInfo()方法。接收参数正是一个 PendingIntent 对象。因此，这里 就可以通过 PendingIntent 构建出一个延迟执行的“意图”，当用户点击这条通知时就会执行 相应的逻辑。</strong><br>修改之前的代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">        <span class="keyword">switch</span> (v.getId()) &#123;</div><div class="line">            <span class="keyword">case</span> R.id.send_notification:</div><div class="line">                Intent intent = <span class="keyword">new</span> Intent(<span class="keyword">this</span>, NotificationActivity.class);<span class="comment">//增加点击效果的代码</span></div><div class="line">                PendingIntent pi = PendingIntent.getActivity(<span class="keyword">this</span>, <span class="number">0</span>, intent, <span class="number">0</span>);<span class="comment">//增加点击效果的代码</span></div><div class="line">                NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);</div><div class="line">                Notification notification = <span class="keyword">new</span> NotificationCompat.Builder(<span class="keyword">this</span>)</div><div class="line">                        .setContentTitle(<span class="string">"This is a content title"</span>)</div><div class="line">                        .setContentText(<span class="string">"This is Content text"</span>)</div><div class="line">                        .setWhen(System.currentTimeMillis())</div><div class="line">                        .setSmallIcon(R.mipmap.ic_launcher)</div><div class="line">                        .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher))</div><div class="line">                        .setContentIntent(pi)</div><div class="line">                        .setAutoCancel(<span class="keyword">true</span>)<span class="comment">//点击后自动取消状态栏的图标。还有一种写法，我写在了NotificationActivity中</span></div><div class="line">                        .build();</div><div class="line"><span class="comment">//                使用manager的notify方法。第一个参数是ID，要保证每个通知的ID都是不同的</span></div><div class="line">                manager.notify(<span class="number">1</span>, notification);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">default</span>:</div><div class="line">                <span class="keyword">break</span>;</div><div class="line"></div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>####另外一种取消图标的方式<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NotificationActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_notification);</div><div class="line"><span class="comment">/**</span></div><div class="line"> *另外一种点击后取消状态栏图标的方法</div><div class="line"> *</div><div class="line"> * 可以看到，这里我们在 cancel()方法中传入了 1，</div><div class="line"> * 这个 1 是什么意思呢?</div><div class="line"> * 还记得在创建通 知的时候给每条通知指定的 id 吗?</div><div class="line"> * 当时我们给这条通知设置的 id 就是 1。因此，如果你想要取消哪一条通知，就在 cancel()方法中传入该通知的 id 就行了。</div><div class="line"> */</div><div class="line">        NotificationManager manager= (NotificationManager) getSystemService(NOTIFICATION_SERVICE);</div><div class="line">        manager.cancel(<span class="number">1</span>);</div><div class="line"></div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>高级使用和优化。代码如下，注释是很好的解释。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.example.gaoshiwei.notificationtest;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.app.Notification;</div><div class="line"><span class="keyword">import</span> android.app.NotificationManager;</div><div class="line"><span class="keyword">import</span> android.app.PendingIntent;</div><div class="line"><span class="keyword">import</span> android.content.Intent;</div><div class="line"><span class="keyword">import</span> android.graphics.BitmapFactory;</div><div class="line"><span class="keyword">import</span> android.graphics.Color;</div><div class="line"><span class="keyword">import</span> android.net.Uri;</div><div class="line"><span class="keyword">import</span> android.support.v7.app.AppCompatActivity;</div><div class="line"><span class="keyword">import</span> android.os.Bundle;</div><div class="line"><span class="keyword">import</span> android.support.v7.app.NotificationCompat;</div><div class="line"><span class="keyword">import</span> android.view.View;</div><div class="line"><span class="keyword">import</span> android.widget.Button;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.io.File;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> <span class="keyword">implements</span> <span class="title">View</span>.<span class="title">OnClickListener</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line">        Button sendButton = (Button) findViewById(R.id.send_notification);</div><div class="line">        sendButton.setOnClickListener(<span class="keyword">this</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 创建通知的Demo</div><div class="line">     * 先创建NotificationManager 对象</div><div class="line">     * 在创建Notification的对象，并进行设置 可以在.build();前写一系列想要的设定效果，显示信息等。</div><div class="line">     * 设置完成后使用NotificationManager的notify方法</div><div class="line">     * date 20170419</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span> v</div><div class="line">     */</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">        <span class="keyword">switch</span> (v.getId()) &#123;</div><div class="line">            <span class="keyword">case</span> R.id.send_notification:</div><div class="line">                Intent intent = <span class="keyword">new</span> Intent(<span class="keyword">this</span>, NotificationActivity.class);<span class="comment">//增加点击效果</span></div><div class="line">                PendingIntent pi = PendingIntent.getActivity(<span class="keyword">this</span>, <span class="number">0</span>, intent, <span class="number">0</span>);<span class="comment">//增加点击效果</span></div><div class="line">                NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);</div><div class="line">                Notification notification = <span class="keyword">new</span> NotificationCompat.Builder(<span class="keyword">this</span>)</div><div class="line"><span class="comment">//                        都是setXXX 很有规律性</span></div><div class="line">                        .setContentTitle(<span class="string">"This is a content title"</span>)</div><div class="line">                        .setContentText(<span class="string">"This is Content text"</span>)</div><div class="line">                        .setWhen(System.currentTimeMillis())</div><div class="line">                        .setSmallIcon(R.mipmap.ic_launcher)</div><div class="line">                        .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher))</div><div class="line">                        .setContentIntent(pi)</div><div class="line"><span class="comment">//                        使用一些常用的通知效果</span></div><div class="line">                        .setSound(Uri.fromFile(<span class="keyword">new</span> File(<span class="string">"/system/media/audio/ringtones/Luna.ogg/"</span>)))<span class="comment">//sound</span></div><div class="line">                        .setVibrate(<span class="keyword">new</span> <span class="keyword">long</span>[]&#123;<span class="number">0</span>, <span class="number">1000</span>, <span class="number">1000</span>, <span class="number">1000</span>&#125;)<span class="comment">//vibrate</span></div><div class="line">                        .setLights(Color.GREEN, <span class="number">1000</span>, <span class="number">1000</span>)<span class="comment">// crash lights</span></div><div class="line"><span class="comment">//                       简便的写法，使用通知的默认效果</span></div><div class="line"><span class="comment">//                      .setDefaults( NotificationCompat.DEFAULT_ALL)</span></div><div class="line"></div><div class="line"><span class="comment">//                        使用高级功能 setStyle功能。</span></div><div class="line">                        .setStyle(<span class="keyword">new</span> NotificationCompat.BigTextStyle().bigText(<span class="string">"记得吃饭，吃饭 ，吃饭."</span> +</div><div class="line">                                <span class="string">"记得吃饭，吃饭 ，吃饭."</span> +</div><div class="line">                                <span class="string">"记得吃饭，吃饭 ，吃饭."</span> +</div><div class="line">                                <span class="string">"记得吃饭，吃饭 ，吃饭."</span> +</div><div class="line">                                <span class="string">"记得吃饭，吃饭 ，吃饭."</span> +</div><div class="line">                                <span class="string">"记得吃饭，吃饭 ，吃饭."</span> +</div><div class="line">                                <span class="string">"记得吃饭，吃饭 ，吃饭."</span> +</div><div class="line">                                <span class="string">"记得吃饭，吃饭 ，吃饭."</span>))</div><div class="line">                        <span class="comment">//.setStyle(new NotificationCompat.BigPictureStyle().bigPicture(BitmapFactory.decodeResource(getResources(), R.drawable.chifan)))</span></div><div class="line"></div><div class="line"><span class="comment">//                      设置优先级,合理使用优先级</span></div><div class="line">                        .setPriority(NotificationCompat.PRIORITY_DEFAULT)</div><div class="line"></div><div class="line"><span class="comment">//                        点击后自动取消状态栏的图标。还有一种写法，我写在了NotificationActivity中</span></div><div class="line">                        .setAutoCancel(<span class="keyword">true</span>)</div><div class="line">                        .build();</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//                使用manager的notify方法。第一个参数是ID，要保证每个通知的ID都是不同的</span></div><div class="line">                manager.notify(<span class="number">1</span>, notification);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">default</span>:</div><div class="line">                <span class="keyword">break</span>;</div><div class="line"></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>此Demo的源代码传送门<a href="https://github.com/tudouloveloli" target="_blank" rel="external">Github</a></p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag"># Android</a>
+          
+            <a href="/tags/Notification/" rel="tag"># Notification</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/17/C语言-指针/" rel="prev" title="C语言--指针">
+                C语言--指针 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.png"
+               alt="Shiwei Gao" />
+          <p class="site-author-name" itemprop="name">Shiwei Gao</p>
+           
+              <p class="site-description motion-element" itemprop="description">代码改变世界</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/tudouloveloli" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Andrdoid–通知-Notification"><span class="nav-number">1.</span> <span class="nav-text">Andrdoid–通知(Notification)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#通知是一个功能"><span class="nav-number">1.1.</span> <span class="nav-text">通知是一个功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通知的使用"><span class="nav-number">1.2.</span> <span class="nav-text">通知的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建的步骤"><span class="nav-number">1.3.</span> <span class="nav-text">创建的步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1，创建NotificationManager"><span class="nav-number">1.3.1.</span> <span class="nav-text">1，创建NotificationManager</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-使用一个Builder构造器来创建Notification对象"><span class="nav-number">1.3.2.</span> <span class="nav-text">2,使用一个Builder构造器来创建Notification对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-使用这个通知"><span class="nav-number">1.3.3.</span> <span class="nav-text">3,使用这个通知</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Demo"><span class="nav-number">1.3.4.</span> <span class="nav-text">Demo</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置点击效果"><span class="nav-number">1.4.</span> <span class="nav-text">设置点击效果</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PendingIntent"><span class="nav-number">1.4.1.</span> <span class="nav-text">PendingIntent</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shiwei Gao</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
