@@ -113,7 +113,7 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2746547-63d5753b3313a94d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2746547-d198b9fb0299af0f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2746547-0497c1bbe6774e00.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-08-10T15:23:25.000Z">
+<meta property="og:updated_time" content="2017-08-12T09:00:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Activity&Fragment生命周期详解">
 <meta name="twitter:description" content="Activity&amp;amp;Fragment生命周期详解 生命周期，是初学Android必须要掌握的一个知识点，也是面试时最常问的知识点。个人觉得，设计Android的工程师们，很大程度上参考了IOS。  1. Activity生命周期介绍Activity生命周期共有7个，可以按照3+1的模式去记忆。">
@@ -461,7 +461,7 @@
 </ul>
 </blockquote>
 <p>切换fragment 可以通过replace 或add方式，与此同时，考虑到是否将fragment 入栈管理，所以切换fragment共有四种场景。当不入栈时，replace 和add 生命周期变化很相似，因此放在一起讨论。</p>
-<h3 id="4-1-replace-add-fragment-不入栈"><a href="#4-1-replace-add-fragment-不入栈" class="headerlink" title="4.1 replace/add fragment 不入栈"></a>4.1 replace/add fragment 不入栈</h3><p>不入栈时，表示切换fragment之后，并不保存之前fragment 实例的引用。因此也就无法再操作之前的fragment。add 和replace 的却别是，replace会将之前的fragment移除，重新添加一个fragment，add 则在之前fragment之上再添加一个fragment，倘若被add fragment的背景是透明的，依然会看见之前fragment的样式。</p>
+<h3 id="4-1-replace-add-fragment-不入栈"><a href="#4-1-replace-add-fragment-不入栈" class="headerlink" title="4.1 replace/add fragment 不入栈"></a>4.1 replace/add fragment 不入栈</h3><p>不入栈时，表示切换fragment之后，并不保存之前fragment 实例的引用。因此也就无法再操作之前的fragment。add 和replace 的区别是，replace会将之前的fragment移除，重新添加一个fragment，add 则在之前fragment之上再添加一个fragment，倘若被add fragment的背景是透明的，依然会看见之前fragment的样式。</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/2746547-63d5753b3313a94d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="35DCD464-3A7B-4E24-A918-2B21D2869771.png"></p>
 <p>通过上图的周期流程图中，不难发现replace 和add 的区别。</p>
 <h3 id="4-2-replace-fragment-入栈"><a href="#4-2-replace-fragment-入栈" class="headerlink" title="4.2 replace fragment 入栈"></a>4.2 replace fragment 入栈</h3><p>此时替换fragment时，首先会移除当前fragment的视图（onDestoryView），但是没有删除当前fragment的实例（没有调用onDestory和onDetach），因为该fragment已经入栈（依然保留着fragment实例的引用）。然后再添加新的fragment，直到新fragment获取到焦点（执行到onResume）截止。若按下返回键，会移除栈顶的fragment，也就是当前可见的fragment，使下一层fragment可见。但是需要再次初始化页面（执行onCreateView）。</p>
@@ -471,7 +471,7 @@
 <h3 id="4-4-replace-和-add-fragment-入栈的异同点"><a href="#4-4-replace-和-add-fragment-入栈的异同点" class="headerlink" title="4.4 replace 和 add fragment 入栈的异同点"></a>4.4 replace 和 add fragment 入栈的异同点</h3><p>相同点：由于入栈是可返回的，因此切换和返回就完整的执行了一个fragment的全部生命周期。</p>
 <p>不同点：replace方式会消除之前fragment的视图，当之前的fragment再次回到栈顶，会再次调用onCreateView，初始化页面，包括所有用户数据。</p>
 <blockquote>
-<p><a href="http://blog.csdn.net/flueky/article/details/51581346" target="_blank" rel="external">原文链接</a></p>
+<p>之前看博主的这篇文章，博客的主题看着很不舒服，故自己按照博主的文章，重新排版了一下，不能让这么好的文章因为视觉而埋没。<a href="http://blog.csdn.net/flueky/article/details/51581346" target="_blank" rel="external">原文链接</a></p>
 </blockquote>
 
       
