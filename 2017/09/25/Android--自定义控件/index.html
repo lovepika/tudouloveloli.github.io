@@ -1,0 +1,983 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android,自定义控件," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="Android–自定义控件 自定义属性 自定义控件(写类) 使用自定义控件  自定义属性如何自定义属性呢？res/attrs.xml (没有的先创建一个attrs.xml) 自定义控件">
+<meta name="keywords" content="Android,自定义控件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Andrdoid--自定义控件">
+<meta property="og:url" content="http://yoursite.com/2017/09/25/Android--自定义控件/index.html">
+<meta property="og:site_name" content="Tudou's Blog">
+<meta property="og:description" content="Android–自定义控件 自定义属性 自定义控件(写类) 使用自定义控件  自定义属性如何自定义属性呢？res/attrs.xml (没有的先创建一个attrs.xml) 自定义控件">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2746547-43745ac4351178ba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2746547-4a958c6a742606d8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2746547-abd5c237b2b53181.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2746547-4bd25cd62618aa33.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-09-26T08:20:14.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Andrdoid--自定义控件">
+<meta name="twitter:description" content="Android–自定义控件 自定义属性 自定义控件(写类) 使用自定义控件  自定义属性如何自定义属性呢？res/attrs.xml (没有的先创建一个attrs.xml) 自定义控件">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2746547-43745ac4351178ba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/09/25/Android--自定义控件/"/>
+
+
+
+
+
+  <title> Andrdoid--自定义控件 | Tudou's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Tudou's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">每一刻，都要进步</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/25/Android--自定义控件/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Shiwei Gao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Tudou's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Andrdoid--自定义控件
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-25T15:44:39+08:00">
+                2017-09-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Andrdoid/" itemprop="url" rel="index">
+                    <span itemprop="name">Andrdoid</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Android–自定义控件"><a href="#Android–自定义控件" class="headerlink" title="Android–自定义控件"></a>Android–自定义控件</h1><ol>
+<li>自定义属性</li>
+<li>自定义控件(写类)</li>
+<li>使用自定义控件</li>
+</ol>
+<h2 id="自定义属性"><a href="#自定义属性" class="headerlink" title="自定义属性"></a>自定义属性</h2><p>如何自定义属性呢？<br>res/attrs.xml (没有的先创建一个attrs.xml)<br><img src="http://upload-images.jianshu.io/upload_images/2746547-43745ac4351178ba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="自定义属性.png"></p>
+<h2 id="自定义控件"><a href="#自定义控件" class="headerlink" title="自定义控件"></a>自定义控件</h2><a id="more"></a>
+<h3 id="1-创建一个java并继承已有的组件"><a href="#1-创建一个java并继承已有的组件" class="headerlink" title="1.创建一个java并继承已有的组件"></a>1.创建一个java并继承已有的组件</h3><blockquote>
+<p>这种自定义控件的方式又叫组合控件，或者说是在原有控件的基础之上升级控件,还有一种方式是完全的自定义View</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TopBar</span> <span class="keyword">extends</span> <span class="title">RelativeLayout</span> </span>&#123;&#125;</div></pre></td></tr></table></figure>
+<h3 id="2-声明属性并找到属性"><a href="#2-声明属性并找到属性" class="headerlink" title="2.声明属性并找到属性"></a>2.声明属性并找到属性</h3><h4 id="2-1声明属性"><a href="#2-1声明属性" class="headerlink" title="2.1声明属性"></a>2.1声明属性</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//    左边需要的属性</span></div><div class="line">   <span class="keyword">private</span> String leftTitle;</div><div class="line">   <span class="keyword">private</span> <span class="keyword">int</span> leftColor;</div><div class="line">   <span class="keyword">private</span> Drawable leftBackground;</div><div class="line"></div><div class="line">   <span class="comment">//    中间需要的属性</span></div><div class="line">   <span class="keyword">private</span> String midTitle;</div><div class="line">   <span class="keyword">private</span> <span class="keyword">int</span> midColor;</div><div class="line">   <span class="keyword">private</span> <span class="keyword">float</span> midTitleSize;</div><div class="line"></div><div class="line">   <span class="comment">//    右边需要的属性</span></div><div class="line">   <span class="keyword">private</span> String rightTitle;</div><div class="line">   <span class="keyword">private</span> <span class="keyword">int</span> rightColor;</div><div class="line">   <span class="keyword">private</span> Drawable rightBackground;</div></pre></td></tr></table></figure>
+<h4 id="2-2-找到属性"><a href="#2-2-找到属性" class="headerlink" title="2.2 找到属性"></a>2.2 找到属性</h4><p>这就需要构造函数,因为我继承的是RelativeLayout，所以用此演示。这里选择带有属性的构造函数。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2746547-4a958c6a742606d8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="使用构造函数设置属性.png"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">TopBar</span><span class="params">(Context context, AttributeSet attrs)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(context, attrs);</div><div class="line">        <span class="comment">// 把自定义属性放到TypeArray的数据结构中</span></div><div class="line">        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.TopBar);</div><div class="line">        <span class="comment">// 从TypedArray 数据结构中获取我们的xml自定义的属性，格式为 TopBar_XXX  TopBar为declare-styleable的name值 XXX使我们自定义的属性名称</span></div><div class="line">        leftTitle = typedArray.getString(R.styleable.TopBar_leftText);</div><div class="line">        leftColor = typedArray.getColor(R.styleable.TopBar_leftTextColor, <span class="number">0</span>);</div><div class="line">        leftBackground = typedArray.getDrawable(R.styleable.TopBar_leftBackground);</div><div class="line"></div><div class="line">        rightTitle = typedArray.getString(R.styleable.TopBar_rightText);</div><div class="line">        rightColor = typedArray.getColor(R.styleable.TopBar_rightTextColor, <span class="number">0</span>);</div><div class="line">        rightBackground = typedArray.getDrawable(R.styleable.TopBar_rightBackground);</div><div class="line"></div><div class="line">        midTitle = typedArray.getString(R.styleable.TopBar_title);</div><div class="line">        midColor = typedArray.getColor(R.styleable.TopBar_titleTextColor, <span class="number">0</span>);</div><div class="line">        midTitleSize = typedArray.getDimension(R.styleable.TopBar_titleTextSize, <span class="number">0</span>);</div><div class="line"></div><div class="line">        <span class="comment">// 不要忘记recycle</span></div><div class="line">        typedArray.recycle();</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h3 id="3-声明控件并为控件设置属性"><a href="#3-声明控件并为控件设置属性" class="headerlink" title="3.声明控件并为控件设置属性"></a>3.声明控件并为控件设置属性</h3><p><strong>我们声明的属性干嘛的？ 我们把属性取出来又为了什么？玩？ 不可能！ 没错就是为控件所用的，<br>那么我们需要控件啊，所以我们要声明控件！</strong><br>就声明两个Button 和一个TextView吧</p>
+<h4 id="3-1-声明控件"><a href="#3-1-声明控件" class="headerlink" title="3.1 声明控件"></a>3.1 声明控件</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 声明控件</span></div><div class="line">   <span class="keyword">private</span> Button leftButton;</div><div class="line">   <span class="keyword">private</span> Button rightButton;</div><div class="line">   <span class="keyword">private</span> TextView midTitleView;</div></pre></td></tr></table></figure>
+<h4 id="3-2为控件设置属性"><a href="#3-2为控件设置属性" class="headerlink" title="3.2为控件设置属性"></a>3.2为控件设置属性</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">     <span class="comment">// 创建 控件</span></div><div class="line">     leftButton = <span class="keyword">new</span> Button(context);</div><div class="line">     rightButton = <span class="keyword">new</span> Button(context);</div><div class="line">     midTitleView = <span class="keyword">new</span> TextView(context);</div><div class="line"></div><div class="line">     <span class="comment">// 为控件添加我们的自定义的属性</span></div><div class="line">     leftButton.setTextColor(leftColor);</div><div class="line">     leftButton.setBackground(leftBackground);</div><div class="line">     leftButton.setText(leftTitle);</div><div class="line"></div><div class="line">     rightButton.setTextColor(rightColor);</div><div class="line">     rightButton.setBackground(rightBackground);</div><div class="line">     rightButton.setText(rightTitle);</div><div class="line"></div><div class="line">     midTitleView.setText(midTitle);</div><div class="line">     midTitleView.setTextColor(midColor);</div><div class="line">     midTitleView.setTextSize(midTitleSize);</div><div class="line">     midTitleView.setGravity(Gravity.CENTER);</div><div class="line"><span class="comment">// 这是View的方法。只要是View都会生效的，写这句话的作用是仅仅为了设置背景。</span></div><div class="line">     setBackgroundColor(Color.parseColor(<span class="string">"#8D6E63"</span>));</div></pre></td></tr></table></figure>
+<h3 id="4-设置LayoutParams（布局参数）"><a href="#4-设置LayoutParams（布局参数）" class="headerlink" title="4.设置LayoutParams（布局参数）"></a>4.设置LayoutParams（布局参数）</h3><p>什么？你不知道什么是LayoutParams，来来来，<a href="https://my.oschina.net/zhangqingcai/blog/28772" target="_blank" rel="external">请参考别人网友写的LayoutParams</a> 顺便看看LayoutParams的大家族</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2746547-abd5c237b2b53181.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="LayoutParams的大家族.png"></p>
+<blockquote>
+<p>解释 LayoutParams：</p>
+<p>LayoutParams 可以理解为layout的包信息(参数)，其中包含了各种数据（参数）。变量param 定义了宽， 高。<br>然后把这个作为Child View的参数了。这很好的体现了LayoutParams的作用。</p>
+</blockquote>
+<h4 id="4-1声明LayoutParams"><a href="#4-1声明LayoutParams" class="headerlink" title="4.1声明LayoutParams"></a>4.1声明LayoutParams</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//LayoutParams</span></div><div class="line">   <span class="keyword">private</span> LayoutParams leftParams;</div><div class="line">   <span class="keyword">private</span> LayoutParams rightParams;</div><div class="line">   <span class="keyword">private</span> LayoutParams titleParams;</div></pre></td></tr></table></figure>
+<h4 id="4-2设置LayoutParams"><a href="#4-2设置LayoutParams" class="headerlink" title="4.2设置LayoutParams"></a>4.2设置LayoutParams</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 使用LayoutParams</span></div><div class="line">       <span class="comment">// 定义宽高，我这里使用的是ViewGroup.LayoutParams</span></div><div class="line">       leftParams = <span class="keyword">new</span> LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);</div><div class="line">       <span class="comment">// 定义放置规则，左对齐</span></div><div class="line">       leftParams.addRule(RelativeLayout.ALIGN_PARENT_LEFT, TRUE);</div><div class="line">       <span class="comment">// addView 是ViewGroup的方法</span></div><div class="line">       <span class="comment">// Adds a child view with the specified layout parameters.</span></div><div class="line">       <span class="comment">//把控件添加到我们的ViewGroup。</span></div><div class="line">       addView(leftButton, leftParams);</div><div class="line"></div><div class="line">       rightParams = <span class="keyword">new</span> LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);</div><div class="line">       rightParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, TRUE);</div><div class="line">       addView(rightButton, rightParams);</div><div class="line"></div><div class="line">       titleParams = <span class="keyword">new</span> LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);</div><div class="line">       titleParams.addRule(RelativeLayout.CENTER_IN_PARENT);</div><div class="line">       addView(midTitleView, titleParams);</div></pre></td></tr></table></figure>
+<h3 id="5-设置监听事件"><a href="#5-设置监听事件" class="headerlink" title="5. 设置监听事件"></a>5. 设置监听事件</h3><blockquote>
+<p>这里需要用到接口回调的设计思想</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 声明一个TopBarClickListener 接口的实例</span></div><div class="line">   <span class="keyword">private</span> TopBarClickListener listener;</div><div class="line"></div><div class="line">   <span class="comment">// 定义回调接口</span></div><div class="line">   <span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">TopBarClickListener</span> </span>&#123;</div><div class="line"></div><div class="line">       <span class="function"><span class="keyword">void</span> <span class="title">leftClick</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">       <span class="function"><span class="keyword">void</span> <span class="title">rightClick</span><span class="params">()</span></span>;</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   <span class="comment">// 暴露一个设置监听的方法给用户</span></div><div class="line">   <span class="comment">// 这里传入的参数是接口参数，由于接口不能直接创建对象，我们想要使用接口，那么就需要实现它的方法，也就是匿名内部类的方式。</span></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setOnTopBarClickListener</span><span class="params">(TopBarClickListener listener)</span> </span>&#123;</div><div class="line">       <span class="comment">// 神奇的地方就是在于我们的参数是接口参数</span></div><div class="line">       <span class="keyword">this</span>.listener = listener;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//定义View点击事件</span></div><div class="line"></div><div class="line">       leftButton.setOnClickListener(<span class="keyword">new</span> OnClickListener() &#123;</div><div class="line">           <span class="meta">@Override</span></div><div class="line">           <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">               listener.leftClick();<span class="comment">//接口引用+接口方法</span></div><div class="line">           &#125;</div><div class="line">       &#125;);</div><div class="line"></div><div class="line">       rightButton.setOnClickListener(<span class="keyword">new</span> OnClickListener() &#123;</div><div class="line">           <span class="meta">@Override</span></div><div class="line">           <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">               listener.rightClick();<span class="comment">//接口引用+接口方法</span></div><div class="line">           &#125;</div><div class="line">       &#125;);</div></pre></td></tr></table></figure>
+<h3 id="6-扩展方法-添加想要的API"><a href="#6-扩展方法-添加想要的API" class="headerlink" title="6.扩展方法(添加想要的API)"></a>6.扩展方法(添加想要的API)</h3><p>我们可以为我们的控件添加我们任何想要的功能方法(就是所谓的API)，这样使用我们控件的人就可以调用方法了。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//添加暴露方法，相当于给TopBar创建很多的API方法，这样可以对控件进行各种想要的控制</span></div><div class="line"><span class="comment">//这里添加一个隐藏左边button的方法</span></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setLeftButtonIsvisable</span><span class="params">(<span class="keyword">boolean</span> flag)</span> </span>&#123;</div><div class="line">       <span class="keyword">if</span> (flag) &#123;</div><div class="line">           leftButton.setVisibility(View.VISIBLE);</div><div class="line">       &#125; <span class="keyword">else</span> &#123;</div><div class="line">           leftButton.setVisibility(View.GONE);</div><div class="line">       &#125;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<h4 id="6-1完整的TopBar控件代码"><a href="#6-1完整的TopBar控件代码" class="headerlink" title="6.1完整的TopBar控件代码"></a>6.1完整的TopBar控件代码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> me.microcool.customview;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.content.Context;</div><div class="line"><span class="keyword">import</span> android.content.res.TypedArray;</div><div class="line"><span class="keyword">import</span> android.graphics.Color;</div><div class="line"><span class="keyword">import</span> android.graphics.drawable.Drawable;</div><div class="line"><span class="keyword">import</span> android.util.AttributeSet;</div><div class="line"><span class="keyword">import</span> android.view.Gravity;</div><div class="line"><span class="keyword">import</span> android.view.View;</div><div class="line"><span class="keyword">import</span> android.view.ViewGroup;</div><div class="line"><span class="keyword">import</span> android.widget.Button;</div><div class="line"><span class="keyword">import</span> android.widget.RelativeLayout;</div><div class="line"><span class="keyword">import</span> android.widget.TextView;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by gaoshiwei on 2017/9/23.</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TopBar</span> <span class="keyword">extends</span> <span class="title">RelativeLayout</span> </span>&#123;</div><div class="line">    <span class="comment">//    左边需要的属性</span></div><div class="line">    <span class="keyword">private</span> String leftTitle;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> leftColor;</div><div class="line">    <span class="keyword">private</span> Drawable leftBackground;</div><div class="line"></div><div class="line">    <span class="comment">//    中间需要的属性</span></div><div class="line">    <span class="keyword">private</span> String midTitle;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> midColor;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">float</span> midTitleSize;</div><div class="line"></div><div class="line">    <span class="comment">//    右边需要的属性</span></div><div class="line">    <span class="keyword">private</span> String rightTitle;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> rightColor;</div><div class="line">    <span class="keyword">private</span> Drawable rightBackground;</div><div class="line"></div><div class="line">    <span class="comment">// 声明控件</span></div><div class="line">    <span class="keyword">private</span> Button leftButton;</div><div class="line">    <span class="keyword">private</span> Button rightButton;</div><div class="line">    <span class="keyword">private</span> TextView midTitleView;</div><div class="line"></div><div class="line">    <span class="comment">//LayoutParams</span></div><div class="line">    <span class="keyword">private</span> LayoutParams leftParams;</div><div class="line">    <span class="keyword">private</span> LayoutParams rightParams;</div><div class="line">    <span class="keyword">private</span> LayoutParams titleParams;</div><div class="line"></div><div class="line">    <span class="comment">// 声明一个TopBarClickListener 接口的实例</span></div><div class="line">    <span class="keyword">private</span> TopBarClickListener listener;</div><div class="line"></div><div class="line">    <span class="comment">// 定义回调接口</span></div><div class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">TopBarClickListener</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">void</span> <span class="title">leftClick</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">void</span> <span class="title">rightClick</span><span class="params">()</span></span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 暴露一个设置监听的方法给用户</span></div><div class="line">    <span class="comment">// 这里传入的参数是接口参数，由于接口不能直接创建对象，我们想要使用接口，那么就需要实现它的方法，也就是匿名内部类的方式。</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setOnTopBarClickListener</span><span class="params">(TopBarClickListener listener)</span> </span>&#123;</div><div class="line">        <span class="comment">// 神奇的地方就是在于我们的参数是接口参数</span></div><div class="line">        <span class="keyword">this</span>.listener = listener;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TopBar</span><span class="params">(Context context, AttributeSet attrs)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(context, attrs);</div><div class="line">        <span class="comment">// 把自定义属性放到TypeArray的数据结构中</span></div><div class="line">        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.TopBar);</div><div class="line">        <span class="comment">// 从TypedArray 数据结构中获取我们的xml自定义的属性，格式为 TopBar_XXX  TopBar为declare-styleable的name值 XXX使我们自定义的属性名称</span></div><div class="line">        leftTitle = typedArray.getString(R.styleable.TopBar_leftText);</div><div class="line">        leftColor = typedArray.getColor(R.styleable.TopBar_leftTextColor, <span class="number">0</span>);</div><div class="line">        leftBackground = typedArray.getDrawable(R.styleable.TopBar_leftBackground);</div><div class="line"></div><div class="line">        rightTitle = typedArray.getString(R.styleable.TopBar_rightText);</div><div class="line">        rightColor = typedArray.getColor(R.styleable.TopBar_rightTextColor, <span class="number">0</span>);</div><div class="line">        rightBackground = typedArray.getDrawable(R.styleable.TopBar_rightBackground);</div><div class="line"></div><div class="line">        midTitle = typedArray.getString(R.styleable.TopBar_title);</div><div class="line">        midColor = typedArray.getColor(R.styleable.TopBar_titleTextColor, <span class="number">0</span>);</div><div class="line">        midTitleSize = typedArray.getDimension(R.styleable.TopBar_titleTextSize, <span class="number">0</span>);</div><div class="line"></div><div class="line">        <span class="comment">// 不要忘记recycle</span></div><div class="line">        typedArray.recycle();</div><div class="line"></div><div class="line">        <span class="comment">// 创建 控件</span></div><div class="line">        leftButton = <span class="keyword">new</span> Button(context);</div><div class="line">        rightButton = <span class="keyword">new</span> Button(context);</div><div class="line">        midTitleView = <span class="keyword">new</span> TextView(context);</div><div class="line"></div><div class="line">        <span class="comment">// 为控件添加我们的自定义的属性</span></div><div class="line">        leftButton.setTextColor(leftColor);</div><div class="line">        leftButton.setBackground(leftBackground);</div><div class="line">        leftButton.setText(leftTitle);</div><div class="line"></div><div class="line">        rightButton.setTextColor(rightColor);</div><div class="line">        rightButton.setBackground(rightBackground);</div><div class="line">        rightButton.setText(rightTitle);</div><div class="line"></div><div class="line">        midTitleView.setText(midTitle);</div><div class="line">        midTitleView.setTextColor(midColor);</div><div class="line">        midTitleView.setTextSize(midTitleSize);</div><div class="line">        midTitleView.setGravity(Gravity.CENTER);</div><div class="line">        <span class="comment">// 这是View的方法。只要是View都会生效的，写这句话的作用是仅仅为了设置背景。</span></div><div class="line">        setBackgroundColor(Color.parseColor(<span class="string">"#8D6E63"</span>));</div><div class="line"></div><div class="line">        <span class="comment">// 使用LayoutParams</span></div><div class="line">        <span class="comment">// 定义宽高</span></div><div class="line">        leftParams = <span class="keyword">new</span> LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);</div><div class="line">        <span class="comment">// 定义放置规则，左对齐</span></div><div class="line">        leftParams.addRule(RelativeLayout.ALIGN_PARENT_LEFT, TRUE);</div><div class="line">        <span class="comment">// addView 是ViewGroup的方法 Adds a child view with the specified layout parameters.</span></div><div class="line">        <span class="comment">//把控件添加到我们的ViewGroup。</span></div><div class="line">        addView(leftButton, leftParams);</div><div class="line"></div><div class="line">        rightParams = <span class="keyword">new</span> LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);</div><div class="line">        rightParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, TRUE);</div><div class="line">        addView(rightButton, rightParams);</div><div class="line"></div><div class="line">        titleParams = <span class="keyword">new</span> LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);</div><div class="line">        titleParams.addRule(RelativeLayout.CENTER_IN_PARENT);</div><div class="line">        addView(midTitleView, titleParams);</div><div class="line"></div><div class="line">        <span class="comment">//定义View点击事件</span></div><div class="line"></div><div class="line">        leftButton.setOnClickListener(<span class="keyword">new</span> OnClickListener() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">                listener.leftClick();<span class="comment">//接口引用+接口方法</span></div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line"></div><div class="line">        rightButton.setOnClickListener(<span class="keyword">new</span> OnClickListener() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">                listener.rightClick();</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//添加暴露方法，相当于给TopBar创建很多的API方法，这样可以对控件进行各种想要的控制</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setLeftButtonIsvisable</span><span class="params">(<span class="keyword">boolean</span> flag)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (flag) &#123;</div><div class="line">            leftButton.setVisibility(View.VISIBLE);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            leftButton.setVisibility(View.GONE);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="7-使用自定义控件"><a href="#7-使用自定义控件" class="headerlink" title="7.使用自定义控件"></a>7.使用自定义控件</h3><h4 id="7-1引进xml布局文件中"><a href="#7-1引进xml布局文件中" class="headerlink" title="7.1引进xml布局文件中"></a>7.1引进xml布局文件中</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">RelativeLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">    <span class="attr">xmlns:app</span>=<span class="string">"http://schemas.android.com/apk/res-auto"</span></div><div class="line">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">tools:context</span>=<span class="string">"me.microcool.customview.CustomHomeActivity"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">me.microcool.customview.TopBar</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/top_bar"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"40dp"</span></div><div class="line">        <span class="attr">app:leftBackground</span>=<span class="string">"@color/colorAccent"</span></div><div class="line">        <span class="attr">app:leftText</span>=<span class="string">"@string/nav_back"</span></div><div class="line">        <span class="attr">app:leftTextColor</span>=<span class="string">"@color/colorPrimary"</span></div><div class="line">        <span class="attr">app:rightBackground</span>=<span class="string">"@color/colorAccent"</span></div><div class="line">        <span class="attr">app:rightText</span>=<span class="string">"@string/more"</span></div><div class="line">        <span class="attr">app:rightTextColor</span>=<span class="string">"@color/colorPrimary"</span></div><div class="line">        <span class="attr">app:title</span>=<span class="string">"@string/title"</span></div><div class="line">        <span class="attr">app:titleTextColor</span>=<span class="string">"@color/colorPrimaryDark"</span></div><div class="line">        <span class="attr">app:titleTextSize</span>=<span class="string">"@dimen/title_text_size"</span> /&gt;</div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="7-2在活动中使用自定义的控件"><a href="#7-2在活动中使用自定义的控件" class="headerlink" title="7.2在活动中使用自定义的控件"></a>7.2在活动中使用自定义的控件</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> me.microcool.customview;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.support.v7.app.ActionBar;</div><div class="line"><span class="keyword">import</span> android.support.v7.app.AppCompatActivity;</div><div class="line"><span class="keyword">import</span> android.os.Bundle;</div><div class="line"><span class="keyword">import</span> android.widget.Toast;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomHomeActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> TopBar mTopBar;</div><div class="line">    </div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        ActionBar actionBar = getSupportActionBar();</div><div class="line">        <span class="keyword">if</span> (actionBar != <span class="keyword">null</span>) &#123;</div><div class="line">            actionBar.hide();</div><div class="line">        &#125;</div><div class="line">        setContentView(R.layout.activity_custom_home);</div><div class="line">        initView();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initView</span><span class="params">()</span> </span>&#123;</div><div class="line">        mTopBar = (TopBar) findViewById(R.id.top_bar);</div><div class="line">        mTopBar.setOnTopBarClickListener(<span class="keyword">new</span> TopBar.TopBarClickListener() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">leftClick</span><span class="params">()</span> </span>&#123;</div><div class="line">                Toast.makeText(CustomHomeActivity.<span class="keyword">this</span>, <span class="string">"LeftButton"</span>, Toast.LENGTH_SHORT).show();</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">rightClick</span><span class="params">()</span> </span>&#123;</div><div class="line">                Toast.makeText(CustomHomeActivity.<span class="keyword">this</span>, <span class="string">"RightButton"</span>, Toast.LENGTH_SHORT).show();</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line"></div><div class="line">        mTopBar.setLeftButtonIsvisable(<span class="keyword">true</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="8-一点额外的知识"><a href="#8-一点额外的知识" class="headerlink" title="8.一点额外的知识"></a>8.一点额外的知识</h3><p><img src="http://upload-images.jianshu.io/upload_images/2746547-4bd25cd62618aa33.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="关于命名空间的一点知识.png"></p>
+<p><strong>请注意：</strong></p>
+<ol>
+<li>xmlns:android=”<a href="http://schemas.android.com/apk/res/android" target="_blank" rel="external">http://schemas.android.com/apk/res/android</a>“</li>
+<li>xmlns:app=”<a href="http://schemas.android.com/apk/res-auto" target="_blank" rel="external">http://schemas.android.com/apk/res-auto</a>“</li>
+</ol>
+<p>xmlns(xmlnamespace)</p>
+<h4 id="我们之所以能用-android：XXXX"><a href="#我们之所以能用-android：XXXX" class="headerlink" title="我们之所以能用 android：XXXX"></a>我们之所以能用 android：XXXX</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">android:layout_width="match_parent"</div><div class="line">android:layout_height="40dp"</div><div class="line">``` </div><div class="line"></div><div class="line">是因为AS自动为我们添加xmlns:android="http://schemas.android.com/apk/res/android"</div><div class="line"></div><div class="line">#### 当我们使用自定义的属性的时候，就需要使用自己的命名空间。</div><div class="line"></div><div class="line">```xml</div><div class="line">xmlns:app="http://schemas.android.com/apk/res-auto"</div></pre></td></tr></table></figure>
+<p>一般用app这个名字，当然我们也可以自定义,比如起个custom的名字。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">xmlns:custom="http://schemas.android.com/apk/res-auto"</div><div class="line"><span class="comment">&lt;!--但是后面一定要是 http://schemas.android.com/apk/res-auto --&gt;</span></div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag"># Android</a>
+          
+            <a href="/tags/自定义控件/" rel="tag"># 自定义控件</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/25/Android--Selector使用/" rel="next" title="Andrdoid-- 样式开发 selector">
+                <i class="fa fa-chevron-left"></i> Andrdoid-- 样式开发 selector
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/24/PopupWindow使用教程/" rel="prev" title="Andrdoid--PopupWindow">
+                Andrdoid--PopupWindow <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.png"
+               alt="Shiwei Gao" />
+          <p class="site-author-name" itemprop="name">Shiwei Gao</p>
+           
+              <p class="site-description motion-element" itemprop="description">代码改变世界</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/tudouloveloli" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:shiweigao@outlook.com" target="_blank" title="Email">
+                  
+                    <i class="fa fa-fw fa-link"></i>
+                  
+                  Email
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Android–自定义控件"><span class="nav-number">1.</span> <span class="nav-text">Android–自定义控件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义属性"><span class="nav-number">1.1.</span> <span class="nav-text">自定义属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义控件"><span class="nav-number">1.2.</span> <span class="nav-text">自定义控件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-创建一个java并继承已有的组件"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.创建一个java并继承已有的组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-声明属性并找到属性"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.声明属性并找到属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1声明属性"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">2.1声明属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-找到属性"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">2.2 找到属性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-声明控件并为控件设置属性"><span class="nav-number">1.2.3.</span> <span class="nav-text">3.声明控件并为控件设置属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-声明控件"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">3.1 声明控件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2为控件设置属性"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">3.2为控件设置属性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-设置LayoutParams（布局参数）"><span class="nav-number">1.2.4.</span> <span class="nav-text">4.设置LayoutParams（布局参数）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1声明LayoutParams"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">4.1声明LayoutParams</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2设置LayoutParams"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">4.2设置LayoutParams</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-设置监听事件"><span class="nav-number">1.2.5.</span> <span class="nav-text">5. 设置监听事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-扩展方法-添加想要的API"><span class="nav-number">1.2.6.</span> <span class="nav-text">6.扩展方法(添加想要的API)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-1完整的TopBar控件代码"><span class="nav-number">1.2.6.1.</span> <span class="nav-text">6.1完整的TopBar控件代码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-使用自定义控件"><span class="nav-number">1.2.7.</span> <span class="nav-text">7.使用自定义控件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-1引进xml布局文件中"><span class="nav-number">1.2.7.1.</span> <span class="nav-text">7.1引进xml布局文件中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-2在活动中使用自定义的控件"><span class="nav-number">1.2.7.2.</span> <span class="nav-text">7.2在活动中使用自定义的控件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-一点额外的知识"><span class="nav-number">1.2.8.</span> <span class="nav-text">8.一点额外的知识</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#我们之所以能用-android：XXXX"><span class="nav-number">1.2.8.1.</span> <span class="nav-text">我们之所以能用 android：XXXX</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shiwei Gao</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
