@@ -83,7 +83,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Android,selector," />
+  <meta name="keywords" content="Android,AsyncTask," />
 
 
 
@@ -99,20 +99,17 @@
 
 
 
-<meta name="description" content="Android样式开发–selector 参考 ： 重点看Google的文档 https://keeganlee.me/post/android/20150905  什么是selector？ Google: Color State List Resource  我就认为他是颜色选择器（Color-Selector）。 为什么要使用selector？ shape只能定义单一的形状，而实际应用中，很多">
-<meta name="keywords" content="Android,selector">
+<meta name="description" content="Android–AsyncTask AsyncTask一种对异步消息处理机制的封装 参考自第一行代码 参考自码出未来的blog">
+<meta name="keywords" content="Android,AsyncTask">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Andrdoid-- 样式开发 selector">
-<meta property="og:url" content="http://yoursite.com/2017/09/25/Android--Selector使用/index.html">
+<meta property="og:title" content="Andrdoid--使用AsyncTask">
+<meta property="og:url" content="http://yoursite.com/2017/04/26/Android--AsyncTask/index.html">
 <meta property="og:site_name" content="Tudou's Blog">
-<meta property="og:description" content="Android样式开发–selector 参考 ： 重点看Google的文档 https://keeganlee.me/post/android/20150905  什么是selector？ Google: Color State List Resource  我就认为他是颜色选择器（Color-Selector）。 为什么要使用selector？ shape只能定义单一的形状，而实际应用中，很多">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2746547-0d1d8e086be41167.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2746547-621476c866f9c56d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-09-26T08:20:33.000Z">
+<meta property="og:description" content="Android–AsyncTask AsyncTask一种对异步消息处理机制的封装 参考自第一行代码 参考自码出未来的blog">
+<meta property="og:updated_time" content="2017-11-08T10:14:37.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Andrdoid-- 样式开发 selector">
-<meta name="twitter:description" content="Android样式开发–selector 参考 ： 重点看Google的文档 https://keeganlee.me/post/android/20150905  什么是selector？ Google: Color State List Resource  我就认为他是颜色选择器（Color-Selector）。 为什么要使用selector？ shape只能定义单一的形状，而实际应用中，很多">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2746547-0d1d8e086be41167.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="Andrdoid--使用AsyncTask">
+<meta name="twitter:description" content="Android–AsyncTask AsyncTask一种对异步消息处理机制的封装 参考自第一行代码 参考自码出未来的blog">
 
 
 
@@ -140,13 +137,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/09/25/Android--Selector使用/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/04/26/Android--AsyncTask/"/>
 
 
 
 
 
-  <title> Andrdoid-- 样式开发 selector | Tudou's Blog </title>
+  <title> Andrdoid--使用AsyncTask | Tudou's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -319,7 +316,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/25/Android--Selector使用/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/26/Android--AsyncTask/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Shiwei Gao">
@@ -340,7 +337,7 @@
             
             
               
-                Andrdoid-- 样式开发 selector
+                Andrdoid--使用AsyncTask
               
             
           </h1>
@@ -355,8 +352,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-25T15:44:39+08:00">
-                2017-09-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-26T23:44:39+08:00">
+                2017-04-26
               </time>
             
 
@@ -413,47 +410,40 @@
       
 
       
-        <h1 id="Android样式开发–selector"><a href="#Android样式开发–selector" class="headerlink" title="Android样式开发–selector"></a>Android样式开发–selector</h1><blockquote>
-<p>参考 ：</p>
-<p><a href="https://developer.android.com/guide/topics/resources/color-list-resource.html" target="_blank" rel="external">重点看Google的文档</a></p>
-<p><a href="https://keeganlee.me/post/android/20150905" target="_blank" rel="external">https://keeganlee.me/post/android/20150905</a></p>
+        <h1 id="Android–AsyncTask"><a href="#Android–AsyncTask" class="headerlink" title="Android–AsyncTask"></a>Android–AsyncTask</h1><blockquote>
+<p>AsyncTask一种对异步消息处理机制的封装</p>
+<p><a href="https://book.douban.com/subject/25942191/" target="_blank" rel="external">参考自第一行代码</a></p>
+<p><a href="https://hjdzone.github.io/blog/2016/12/12/understand-asynctask/" target="_blank" rel="external">参考自码出未来的blog</a></p>
 </blockquote>
-<h2 id="什么是selector？"><a href="#什么是selector？" class="headerlink" title="什么是selector？"></a>什么是selector？</h2><blockquote>
-<p>Google: Color State List Resource</p>
-</blockquote>
-<p>我就认为他是颜色选择器（Color-Selector）。</p>
-<h2 id="为什么要使用selector？"><a href="#为什么要使用selector？" class="headerlink" title="为什么要使用selector？"></a>为什么要使用selector？</h2><blockquote>
-<p>shape只能定义单一的形状，而实际应用中，很多地方比如按钮、Tab、ListItem等都是不同状态有不同的展示形状。举个例子，一个按钮的背景，默认时是一个形状，按下时是一个形状，不可操作时又是另一个形状。有时候，不同状态下改变的不只是背景、图片等，文字颜色也会相应改变。而要处理这些不同状态下展示什么的问题，就要用selector来实现了。 –说明自自Keegan小钢</p>
-</blockquote>
-<h2 id="如何创建？创建在哪里？"><a href="#如何创建？创建在哪里？" class="headerlink" title="如何创建？创建在哪里？"></a>如何创建？创建在哪里？</h2><a id="more"></a>
-<p><strong>看这里</strong></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2746547-0d1d8e086be41167.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="selector的官方说明.png"></p>
-<p>res/color/filename.xml(没有color文件夹的先在res下新建个color文件夹) 【这里说的是主要使用方式】</p>
-<p>下面是Google文档中给的demo</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">selector</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span> &gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span></span></div><div class="line">        <span class="attr">android:color</span>=<span class="string">"hex_color"</span></div><div class="line">        <span class="attr">android:state_pressed</span>=<span class="string">[</span>"<span class="attr">true</span>" | "<span class="attr">false</span>"]</div><div class="line">        <span class="attr">android:state_focused</span>=<span class="string">[</span>"<span class="attr">true</span>" | "<span class="attr">false</span>"]</div><div class="line">        <span class="attr">android:state_selected</span>=<span class="string">[</span>"<span class="attr">true</span>" | "<span class="attr">false</span>"]</div><div class="line">        <span class="attr">android:state_checkable</span>=<span class="string">[</span>"<span class="attr">true</span>" | "<span class="attr">false</span>"]</div><div class="line">        <span class="attr">android:state_checked</span>=<span class="string">[</span>"<span class="attr">true</span>" | "<span class="attr">false</span>"]</div><div class="line">        <span class="attr">android:state_enabled</span>=<span class="string">[</span>"<span class="attr">true</span>" | "<span class="attr">false</span>"]</div><div class="line">        <span class="attr">android:state_window_focused</span>=<span class="string">[</span>"<span class="attr">true</span>" | "<span class="attr">false</span>"] /&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">selector</span>&gt;</span></div></pre></td></tr></table></figure>
-<h2 id="selector标签"><a href="#selector标签" class="headerlink" title="selector标签"></a>selector标签</h2><p>selector标签，<strong>可以添加一个或多个item子标签，</strong>而相应的状态是在item标签中定义的。</p>
-<p>定义的xml文件可以作为两种资源使用：drawable和color。</p>
+<a id="more"></a>
+<p>为了更加方便我们在子线程中对 UI 进行操作，Android 还提供了另外一些好用的工具， 比如 AsyncTask。借助AsyncTask，即使你对异步消息处理机制完全不了解，也可以十分简单地从子线程切换到主线程。当然，AsyncTask的实现原理也是基于异步消息处理机制的，只是 Android 帮我们做了很好的封装而已。</p>
+<p>AsyncTask 允许对用户界面执行异步操作。 它会先阻塞工作线程中的操作，然后在 UI 线程中发布结果，而无需您亲自处理线程和/或处理程序。</p>
+<p>要使用它，必须创建 AsyncTask 的子类并实现 doInBackground() 回调方法，该方法将在后台线程池中运行。要更新 UI，应该实现 onPostExecute() 以传递 doInBackground() 返回的结果并在 UI 线程中运行，以便安全地更新 UI。 可以通过从 UI 线程调用 execute() 来运行任务。</p>
+<p>先看一下小Demo</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">    <span class="keyword">new</span> DownloadImageTask().execute(<span class="string">"http://example.com/image.png"</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">DownloadImageTask</span> <span class="keyword">extends</span> <span class="title">AsyncTask</span>&lt;<span class="title">String</span>, <span class="title">Void</span>, <span class="title">Bitmap</span>&gt; </span>&#123;</div><div class="line">    <span class="comment">/** The system calls this to perform work in a worker thread and</span></div><div class="line">      * delivers it the parameters given to AsyncTask.execute() */</div><div class="line">    <span class="function"><span class="keyword">protected</span> Bitmap <span class="title">doInBackground</span><span class="params">(String... urls)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> loadImageFromNetwork(urls[<span class="number">0</span>]);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/** The system calls this to perform work in the UI thread and delivers</span></div><div class="line">      * the result from doInBackground() */</div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onPostExecute</span><span class="params">(Bitmap result)</span> </span>&#123;</div><div class="line">        mImageView.setImageBitmap(result);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>现在 UI 是安全的，代码也得到简化，因为任务分解成了两部分：一部分应在工作线程内完成，另一部分应在 UI 线程内完成。 </p>
+<p>AsyncTask 使用概述：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">AsyncTask</span>&lt;<span class="title">Params</span>, <span class="title">Progress</span>, <span class="title">Result</span>&gt; </span>&#123;…&#125;</div></pre></td></tr></table></figure>
 <ul>
-<li>作为drawable资源使用时，一般和shape一样放于drawable目录下，<strong>item必须指定android:drawable属性</strong>；</li>
-<li>作为color资源使用时，则放于color目录下，item必须指定android:color属性。</li>
+<li>可以使用泛型指定参数类型、进度值和任务最终值；</li>
+<li>方法 doInBackground() 会在工作线程上自动执行；</li>
+<li>onPreExecute()、onPostExecute() 和 onProgressUpdate() 均在 UI 线程中调用；</li>
+<li>doInBackground() 返回的值将发送到 onPostExecute()；</li>
+<li>可以随时在 doInBackground() 中调用publishProgress()，以在 UI 线程中执行 onProgressUpdate()</li>
 </ul>
-<h2 id="item标签"><a href="#item标签" class="headerlink" title="item标签"></a>item标签</h2><p>看看都有哪些状态可以设置呢：</p>
+<p><code>注意</code>：使用工作线程时可能会遇到另一个问题，即：运行时配置变更（例如，用户更改了屏幕方向）导致 Activity 意外重启，这可能会销毁工作线程。 要了解如何在这种重启情况下坚持执行任务，以及如何在 Activity 被销毁时正确地取消任务，</p>
+<p><em>下面是详细的讲解</em></p>
+<h2 id="1-AsyncTask基本用法"><a href="#1-AsyncTask基本用法" class="headerlink" title="1,AsyncTask基本用法"></a>1,AsyncTask基本用法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 看源码</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">AsyncTask</span>&lt;<span class="title">Params</span>, <span class="title">Progress</span>, <span class="title">Result</span>&gt; </span>&#123;...&#125;</div><div class="line"><span class="comment">//代码的最高境界莫过于自解释代码(自带注释)</span></div></pre></td></tr></table></figure>
+<p>首先来看一下 AsyncTask 的基本用法，<strong>由于 AsyncTask 是一个抽象类，</strong>所以如果我们想使用它，就必须要创建一个子类去继承它。在继承时我们可以为 AsyncTask 类指定 3 个泛型参数，这 3 个参数的用途如下。</p>
 <ul>
-<li>android:state_enabled: 设置触摸或点击事件是否可用状态，一般只在false时设置该属性，表示不可用状态</li>
-<li>android:state_pressed: 设置是否按压状态，一般在true时设置该属性，表示已按压状态，默认为false</li>
-<li>android:state_selected: 设置是否选中状态，true表示已选中，false表示未选中</li>
-<li>android:state_checked: 设置是否勾选状态，主要用于CheckBox和RadioButton，true表示已被勾选，false表示未被勾选</li>
-<li>android:state_checkable: 设置勾选是否可用状态，类似state_enabled，只是state_enabled会影响触摸或点击事件，而state_checkable影响勾选事件</li>
-<li>android:state_focused: 设置是否获得焦点状态，true表示获得焦点，默认为false，表示未获得焦点</li>
-<li>android:state_window_focused: 设置当前窗口是否获得焦点状态，true表示获得焦点，false表示未获得焦点，例如拉下通知栏或弹出对话框时，当前界面就会失去焦点；另外，ListView的ListItem获得焦点时也会触发true状态，可以理解为当前窗口就是ListItem本身</li>
+<li>Params。在执行 AsyncTask 时需要传入的参数，可用于在后台任务中使用。</li>
+<li>Progress。后台任务执行时，如果需要在界面上显示当前的进度，则使用这里指定的类型作为进度单位。 </li>
+<li>Result。当任务执行完毕后，如果需要对结果进行返回，则使用这里指定的泛型作为返回值类型。</li>
 </ul>
-<p>有二个文档中没写的(参考自上面的链接)：</p>
-<ul>
-<li>android:state_activated: 设置是否被激活状态，true表示被激活，false表示未激活，API Level 11及以上才支持，可通过代码调用控件的setActivated(boolean)方法设置是否激活该控件</li>
-<li>android:state_hovered: 设置是否鼠标在上面滑动的状态，true表示鼠标在上面滑动，默认为false，API Level 14及以上才支持</li>
-</ul>
-<p>Google Demo </p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2746547-621476c866f9c56d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Google selector Demo.png"></p>
+<p>一个最简单的自定义 AsyncTask 就可以写成如下方式:</p>
+<p>```java<br>    class DownloadTask extends AsyncTask<void, integer,="" boolean=""> {<br>    …<br>    }<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">这里我们把 AsyncTask 的第一个泛型参数指定为 Void，表示在执行 AsyncTask 的时候不需要传入参数给后台任务。第二个泛型参数指定为 Integer，表示使用整型数据来作为进度显示单位。第三个泛型参数指定为 Boolean，则表示使用布尔型数据来反馈执行结果。</div><div class="line"></div><div class="line">当然，目前我们自定义的 DownloadTask 还是一个空任务，并不能进行任何实际的操作，我们还需要去重写 AsyncTask 中的几个方法才能完成对任务的定制。经常需要去重写的方法有以下 4个。</div><div class="line"></div><div class="line">### 1. onPreExecute()</div><div class="line"></div><div class="line">这个方法会在后台任务开始执行之前调用，用于进行一些界面上的初始化操作，比如显示一个进度条对话框等。</div><div class="line"></div><div class="line">### 2. doInBackground(Params...)</div><div class="line"></div><div class="line">**这个方法中的所有代码都会在子线程中运行，我们应该在这里去处理所有的耗时任务。**任务一旦完成就可以通过 return 语句来将任务的执行结果返回，如果 AsyncTask 的第三泛型参数 指定的是 Void，就可以不返回任务执行结果。**注意，在这个方法中是不可以进行 UI 操作的，如果需要更新 UI 元素，比如说反馈当前任务的执行进度，可以调用 publishProgress (Progress...)方法来完成。**</div><div class="line"></div><div class="line">### 3. onProgressUpdate(Progress...)</div><div class="line"></div><div class="line">当在后台任务中调用了 publishProgress(Progress...)方法后，onProgressUpdate (Progress...)方法就会很快被调用，`该方法中携带的参数就是在后台任务中传递过来的。` 在这 个方法中可以对 UI 进行操作，利用参数中的数值就可以对界面元素进行相应的更新。</div><div class="line"></div><div class="line">### 4. onPostExecute(Result)</div><div class="line"></div><div class="line">当后台任务执行完毕并通过 return 语句进行返回时，这个方法就很快会被调用。返回的数 据会作为参数传递到此方法中，可以利用返回的数据来进行一些 UI 操作，比如说提醒任务执行的结果，以及关闭掉进度条对话框等。</div><div class="line"></div><div class="line"></div><div class="line">### Demo</div><div class="line"></div><div class="line">因此，一个比较完整的自定义 AsyncTask 就可以写成如下方式:</div><div class="line"> </div><div class="line">```java</div><div class="line">class DownloadTask extends AsyncTask&lt;Void, Integer, Boolean&gt; &#123;</div><div class="line">    @Override</div><div class="line">    protected void onPreExecute() &#123;</div><div class="line">        progressDialog.show();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    protected Boolean doInBackground(Void... params) &#123;</div><div class="line">        try &#123;</div><div class="line">            while (true) &#123;</div><div class="line">                int downloadPercent = doDownload(); //这是一个虚构的方法 				   publishProgress(downloadPercent);</div><div class="line">                if (downloadPercent &gt;= 100) &#123;</div><div class="line">                    break;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125; catch (Exception e) &#123;</div><div class="line">            return false;</div><div class="line">        &#125;</div><div class="line">        return true;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    protected void onProgressUpdate(Integer... values) &#123;</div><div class="line">        //       </div><div class="line">        progressDialog.setMessage(&quot;Downloaded &quot; + values[0] + &quot;%&quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    protected void onPostExecute(Boolean result) &#123;</div><div class="line">        progressDialog.dismiss();</div><div class="line">        if (result) &#123;</div><div class="line">            Toast.makeText(context, &quot;Download succeeded&quot;, Toast.LENGTH_SHORT).show();</div><div class="line">        &#125; else &#123;</div><div class="line">            Toast.makeText(context, &quot; Download failed&quot;, Toast.LENGTH_SHORT).show();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></void,></p>
+<h3 id="启动这个任务"><a href="#启动这个任务" class="headerlink" title="启动这个任务"></a>启动这个任务</h3><p>如果想要启动这个任务，只需编写以下代码即可:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> DownloadTask().execute();</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -485,7 +475,7 @@
           
             <a href="/tags/Android/" rel="tag"># Android</a>
           
-            <a href="/tags/selector/" rel="tag"># selector</a>
+            <a href="/tags/AsyncTask/" rel="tag"># AsyncTask</a>
           
         </div>
       
@@ -498,8 +488,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/25/Android--自定义控件/" rel="next" title="Andrdoid--自定义控件">
-                <i class="fa fa-chevron-left"></i> Andrdoid--自定义控件
+              <a href="/2017/05/06/Glide的基本用法(一)/" rel="next" title="Gilde的基本用法">
+                <i class="fa fa-chevron-left"></i> Gilde的基本用法
               </a>
             
           </div>
@@ -508,8 +498,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/09/24/Android--Shape的使用/" rel="prev" title="Andrdoid--Shape">
-                Andrdoid--Shape <i class="fa fa-chevron-right"></i>
+              <a href="/2017/04/26/Android--Service/" rel="prev" title="Andrdoid--Service">
+                Andrdoid--Service <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -588,7 +578,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -610,7 +600,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -665,7 +655,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Android样式开发–selector"><span class="nav-number">1.</span> <span class="nav-text">Android样式开发–selector</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是selector？"><span class="nav-number">1.1.</span> <span class="nav-text">什么是selector？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要使用selector？"><span class="nav-number">1.2.</span> <span class="nav-text">为什么要使用selector？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何创建？创建在哪里？"><span class="nav-number">1.3.</span> <span class="nav-text">如何创建？创建在哪里？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#selector标签"><span class="nav-number">1.4.</span> <span class="nav-text">selector标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#item标签"><span class="nav-number">1.5.</span> <span class="nav-text">item标签</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Android–AsyncTask"><span class="nav-number">1.</span> <span class="nav-text">Android–AsyncTask</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-AsyncTask基本用法"><span class="nav-number">1.1.</span> <span class="nav-text">1,AsyncTask基本用法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#启动这个任务"><span class="nav-number">1.1.1.</span> <span class="nav-text">启动这个任务</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
