@@ -99,18 +99,18 @@
 
 
 
-<meta name="description" content="Android–Service 参考提示：别忘了在 AndroidManifest.xml注册我们定义的服务。  Service是什么？服务（Service）是 Android中实现程序后台运行的解决方案，它非常适合去执行那些不需要和用户交互而且还要求长期运行的任务。服务的运行不依赖于任何用户界面，即使程序被切换到后台，或者用户打开了另外一个应用程序，服务仍然能够保持正常运行。 不过需要注意的是,">
+<meta name="description" content="Android–Service 参考1-官网参考2-鸿洋blog提示：别忘了在 AndroidManifest.xml注册我们定义的服务。  Service是什么？服务（Service）是 Android中实现程序后台运行的解决方案，它非常适合去执行那些不需要和用户交互而且还要求长期运行的任务。服务的运行不依赖于任何用户界面，即使程序被切换到后台，或者用户打开了另外一个应用程序，服务仍然能够保持正">
 <meta name="keywords" content="Android,Service,IntentService,Service的生命周期">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Andrdoid--Service">
 <meta property="og:url" content="http://yoursite.com/2017/04/26/Android--Service/index.html">
 <meta property="og:site_name" content="Tudou's Blog">
-<meta property="og:description" content="Android–Service 参考提示：别忘了在 AndroidManifest.xml注册我们定义的服务。  Service是什么？服务（Service）是 Android中实现程序后台运行的解决方案，它非常适合去执行那些不需要和用户交互而且还要求长期运行的任务。服务的运行不依赖于任何用户界面，即使程序被切换到后台，或者用户打开了另外一个应用程序，服务仍然能够保持正常运行。 不过需要注意的是,">
+<meta property="og:description" content="Android–Service 参考1-官网参考2-鸿洋blog提示：别忘了在 AndroidManifest.xml注册我们定义的服务。  Service是什么？服务（Service）是 Android中实现程序后台运行的解决方案，它非常适合去执行那些不需要和用户交互而且还要求长期运行的任务。服务的运行不依赖于任何用户界面，即使程序被切换到后台，或者用户打开了另外一个应用程序，服务仍然能够保持正">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2746547-7746ac233b8735a0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-11-08T10:08:24.000Z">
+<meta property="og:updated_time" content="2017-11-13T07:19:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Andrdoid--Service">
-<meta name="twitter:description" content="Android–Service 参考提示：别忘了在 AndroidManifest.xml注册我们定义的服务。  Service是什么？服务（Service）是 Android中实现程序后台运行的解决方案，它非常适合去执行那些不需要和用户交互而且还要求长期运行的任务。服务的运行不依赖于任何用户界面，即使程序被切换到后台，或者用户打开了另外一个应用程序，服务仍然能够保持正常运行。 不过需要注意的是,">
+<meta name="twitter:description" content="Android–Service 参考1-官网参考2-鸿洋blog提示：别忘了在 AndroidManifest.xml注册我们定义的服务。  Service是什么？服务（Service）是 Android中实现程序后台运行的解决方案，它非常适合去执行那些不需要和用户交互而且还要求长期运行的任务。服务的运行不依赖于任何用户界面，即使程序被切换到后台，或者用户打开了另外一个应用程序，服务仍然能够保持正">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2746547-7746ac233b8735a0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -413,7 +413,7 @@
 
       
         <h1 id="Android–Service"><a href="#Android–Service" class="headerlink" title="Android–Service"></a>Android–Service</h1><blockquote>
-<p><a href="https://developer.android.com/guide/components/services.html" target="_blank" rel="external">参考</a><br>提示：别忘了在 AndroidManifest.xml注册我们定义的服务。</p>
+<p><a href="https://developer.android.com/guide/components/services.html" target="_blank" rel="external">参考1-官网</a><br><a href="http://blog.csdn.net/lmj623565791/article/details/47143563" target="_blank" rel="external">参考2-鸿洋blog</a><br>提示：别忘了在 AndroidManifest.xml注册我们定义的服务。</p>
 </blockquote>
 <h2 id="Service是什么？"><a href="#Service是什么？" class="headerlink" title="Service是什么？"></a>Service是什么？</h2><p>服务（Service）是 Android中实现程序后台运行的解决方案，它非常适合去执行那些不需要和用户交互而且还要求长期运行的任务。服务的运行不依赖于任何用户界面，即使程序被切换到后台，或者用户打开了另外一个应用程序，服务仍然能够保持正常运行。</p>
 <p>不过需要注意的是, 服务并不是运行在一个独立的进程当中的，而是依赖于创建服务时所在的应用程序进程。当某个应用程序进程被杀掉时，所有依赖于该进程的服务也会停止运行。另外，也不要被服务的后台概念所迷惑，实际上服务并不会自动开启线程，所有的代码都是默认运行在主线程当中的。<br><strong>也就是说，我们需要在服务的内部手动创建子线程，并在这里执行具体的任务，否则就有可能出现主线程被阻塞住的情况。</strong></p>
@@ -739,7 +739,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
